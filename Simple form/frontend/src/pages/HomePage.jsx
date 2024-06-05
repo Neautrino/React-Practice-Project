@@ -17,7 +17,9 @@ function HomePage() {
 		<div>
 			<Nav text="Fill the Survey Form" />
 
-			<form className="max-w-md mx-auto">
+			<form className="max-w-md mx-auto"
+                onSubmit={(e) => e.preventDefault()}
+            >
 				<InputBox 
                     label="FirstName"
                     placeholder="Hello"
@@ -64,7 +66,10 @@ function HomePage() {
                     id="phone"
                     type="text"
                     value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    onChange={(e)=>{
+                        setForm({ ...form, phone: e})
+                        console.log(e)
+                    }}
                 />
                 <InputBox 
                     label="Country"
